@@ -1,0 +1,39 @@
+# LOCK-TABLE-DEFAULT-MODE-ACCESS-EXCLUSIVE
+
+## 来源声明
+- source_type: official-doc
+- source_ref: PostgreSQL 16 Chapter 13 Concurrency Control
+- source_note: 来源于 PostgreSQL 官方文档 Chapter 13 的章节内容或其历史测试点迁移。
+
+
+## 官方章节
+13.3.1 Table-Level Locks
+
+## 官方依据摘要
+The default lock mode for LOCK TABLE without an explicit mode is ACCESS EXCLUSIVE.
+
+## 来源因子
+- factor_matrix: docs/test-factors/chapter-13-concurrency-control/13.3-explicit-locking/13.3.1-table-level-locks/factor-matrix.md
+- factor_values: F01-V04,F02-V04,F03-V02,F04-V01
+- combination_strategy: single-factor
+
+## 测试点
+LOCK TABLE 未指定模式时默认获取 ACCESS EXCLUSIVE。
+
+## 覆盖类型
+正向
+
+## 重要边界
+- 被测对象/语句：LOCK。
+- 触发状态/条件：常规事务状态转换。
+- 边界或异常：常规核心路径。
+- 本测试点只验证一个主要并发语义，不与相邻章节测试点合并。
+
+## 测试必要性
+supporting
+
+## 标记理由
+该用例有官方依据，但主要承担覆盖说明或设计约束作用，独立执行收益低于核心并发行为用例。
+
+## 备注
+来源：docs/archive/concurrency-control-by-official-chapter/13.3-explicit-locking/13.3.1-table-level-locks/lock-table-default-mode-access-exclusive.md
